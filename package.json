@@ -4,30 +4,13 @@
   "description": "Node server for webdev summer 2 2018",
   "main": "index.js",
   "scripts": {
-    "ng": "ng",
-    "start": "node server.js",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod"
-  }
-,
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "Curt Lockhart",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
-    "mongoose": "^5.2.6",
-    "path": "^0.12.7",
-    "typescript": "~2.3.3"
-  },
-  "engines": {
-    "node": "8.11.1",
-    "npm": "5.6.0"
-  },
-  "devDependencies": {
-    "enhanced-resolve": "^3.3.0"
+    "mongoose": "^5.2.6"
   }
 }
