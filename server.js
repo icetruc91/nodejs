@@ -1,17 +1,17 @@
 var express = require('express')
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MLAB_URI);
+mongoose.connect('mongodb://localhost/webdev-summer2-2018');
 
 
-var app = express();
+var app = express()
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin",
-        "https://webdev-madness.herokuapp.com");
+        "http://localhost:4200");
     res.header("Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods",
@@ -23,23 +23,23 @@ app.use(function(req, res, next) {
 
 
 
-var session = require('express-session')
+var session = require('express-session');
 app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: 'any string'
 }));
 
+app.get('/', function(req,res) {
+    res.send("Hello World");
+})
 
 
 app.get('/api/session/set/:name/:value',
     setSession);
 app.get('/api/session/get/:name',
     getSession);
-// app.get('/api/session/get',
-//   getSessionAll);
-// app.get('/api/session/reset',
-//   resetSession);
+
 
 function setSession(req, res) {
     var name = req.params['name'];
@@ -56,9 +56,7 @@ function getSession(req, res) {
 
 var userModel = require('./models/user/user.model.server');
 var sectionModel = require('./models/section/section.model.server');
-// userModel.createUser({
-//     username:'bob', password: 'bob'
-// });
+
 
 var users = [];
     userModel.findAllUsers()
@@ -73,7 +71,8 @@ userService(app);
 var sectionService = require('./services/section.service.server.js');
 sectionService(app);
 
-// require('./services/section.service.server')(app);
 
 
-app.listen(process.env.PORT || 3000);
+app.listen(3000);
+
+// process.env.PORT ||

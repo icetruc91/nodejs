@@ -6,6 +6,5 @@ var sectionSchema = mongoose.Schema({
     courseId: Number
 }, {collection: 'section'});
 
-// {type: mongoose.Schema.Types.ObjectId}
 
 module.exports = sectionSchema;
