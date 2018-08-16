@@ -91,7 +91,7 @@ module.exports = function (app){
             })
     }
 
-    //Let's try this again. 
+    //Let's try this again.
 
     //Hoping this works.
     function updateProfile(req, res){
@@ -105,7 +105,7 @@ module.exports = function (app){
         if(tempUser.city !== undefined) user.city = tempUser.city;
         if(tempUser.state!== undefined) user.state = tempUser.state;
         if(tempUser.zip!== undefined) user.zip= tempUser.zip;
-        if(tempUser.phoneNumber !== undefined) user.phoneNumber = tempUser.phone;
+        // if(tempUser.phoneNumber !== undefined) user.phoneNumber = tempUser.phone;
 
         userModel.updateProfile(user)
             .then(function (response) {
