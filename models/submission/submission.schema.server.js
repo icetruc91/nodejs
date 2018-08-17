@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 module.exports = mongoose.Schema({
+
+    timeStamp:   { type : Date, default: Date.now },
+    submissionId: mongoose.Schema.Types.ObjectId,
     student: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'UserModel'
     },
-    question: {
+    quiz: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'QuizModel'
     },
@@ -15,9 +18,9 @@ module.exports = mongoose.Schema({
         },
         multipleChoiceAnswer: Number,
         trueFalseAnswer: Boolean,
-        essayString: String,
+        essayAnswer: String,
         question: {
-            type: mongoose.Schemma.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'QuestionModel'
         }
     }]

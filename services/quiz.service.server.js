@@ -3,6 +3,7 @@ module.exports = app => {
 
 
 
+
     createQuiz = (req, res) => {
         console.log('create quiz');
         quizModel.createQuiz(req.body)
@@ -48,9 +49,8 @@ module.exports = app => {
             )
     };
 
-    submitQuiz = (req, res) => {
-        res.json(req.body);
-    };
+
+
 
     app.post('/api/quiz', createQuiz);
     app.get('/api/quiz', findAllQuizzes);
@@ -58,6 +58,5 @@ module.exports = app => {
     app.put('/api/quiz/qid', updateQuiz);
     app.delete('/api/quiz/:qid', deleteQuiz);
     app.put('api/quiz/:qid/question/:questionId', addQuestion);
-    app.post('/api/quiz/:qid/submission', submitQuiz);
 
 };
