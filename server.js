@@ -71,7 +71,17 @@ userService(app);
 var sectionService = require('./services/section.service.server.js');
 sectionService(app);
 
+var questionService = require('./services/question.service.server');
+questionService(app);
 
+var quizService = require('./services/quiz.service.server');
+quizService(app);
+
+var submissionService = require('./services/submission.service.server');
+submissionService(app);
+
+
+// require('./services/quiz.service.server')(app);
 
 app.listen(process.env.PORT || 3000);
 

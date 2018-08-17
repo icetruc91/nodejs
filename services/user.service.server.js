@@ -91,8 +91,9 @@ module.exports = function (app){
             })
     }
 
+    //Let's try this again.
 
-
+    //Hoping this works.
     function updateProfile(req, res){
         var user = req.session['currentUser'];
         var tempUser = req.body;
